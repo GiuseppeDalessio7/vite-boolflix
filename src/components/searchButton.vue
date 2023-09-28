@@ -8,6 +8,7 @@ export default {
 
         }
     },
+
     created() {
         store.fetchData();
     },
@@ -29,8 +30,9 @@ export default {
 
 
 <template>
-    <form>
-        <input v-model="store.films" class="p-1 my-2" type="text" name="search" placeholder="Cerca Film o Serie" id="">
+    <form action="" @submit.prevent>
+        <input v-model="store.films" class="p-1 my-2" type="text" name="search" placeholder="Cerca Film o Serie" id=""
+            required>
         <button class="btn btn-outline-danger" @click="searchFilms()">cerca</button>
         <div class="container">
             <ul v-for="(film, i) in this.store.filmScelto">
