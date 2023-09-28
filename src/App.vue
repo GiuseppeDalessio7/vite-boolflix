@@ -1,10 +1,12 @@
 <script >
 import { store } from '../src/store.js';
+import SearchButton from '../src/components/searchButton.vue'
 
 
 export default {
   name: "App",
   components: {
+    SearchButton,
 
   },
   data() {
@@ -22,11 +24,7 @@ export default {
 <template>
   <div class="mybg">
     <h1 class="text-center my_red text-white">Cerca il film o la serie Tv</h1>
-    <div>
-      <input type="search" placeholder="Cerca Film o Serie" class="p-1 my-2">
-      <button class="btn btn-outline-danger" type="submit ">Cerca</button>
-
-    </div>
+    <SearchButton></SearchButton>
   </div>
 </template>
 
