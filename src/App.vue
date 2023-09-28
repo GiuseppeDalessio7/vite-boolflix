@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       store,
-      activeimage: 0,
+
     }
   },
 
@@ -20,7 +20,7 @@ export default {
 
 
 <template>
-  <h1>Ciao</h1>
+  <h1>{{ store.selectedFilm }}</h1>
 </template>
 
 <style scoped></style>
