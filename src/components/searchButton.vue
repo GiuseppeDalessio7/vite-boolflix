@@ -43,6 +43,7 @@ export default {
                 if (bandiera.language === valueLang) {
                     found = true
                     console.log(found);
+                    console.log(bandiera.language);
                 }
 
             })
@@ -88,6 +89,8 @@ export default {
 span {
     color: white;
 }
+
+img {}
 </style>
 
 
