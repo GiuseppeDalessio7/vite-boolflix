@@ -73,16 +73,16 @@ export default {
         <input v-model="store.films" class="p-1 my-2" type="text" name="search" placeholder="Cerca Film o Serie" id=""
             required>
         <button class="btn btn-outline-danger" @click="searchFilms()">cerca</button>
-        <div class="row ">
-            <div class="col-md-5" v-for="(film, i) in this.store.filmScelto">
+        <div class="row d-flex ">
+            <div class="col-md-4" v-for="(film, i) in this.store.filmScelto">
                 <div class="card mb-4">
                     <img class="card-img-top"
-                        :src="film.backdrop_path ? `https://image.tmdb.org/t/p/w342/${film.backdrop_path} ` : 'https://hips.hearstapps.com/hmg-prod/images/legacy-fre-image-placeholder-it-1-1674070998.png?crop=0.5xw:1xh;center,top&resize=640:*'"
+                        :src="film.backdrop_path ? `https://image.tmdb.org/t/p/w342/${film.backdrop_path} ` : 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Immagine_non_disponibile.JPG'"
                         alt="">
 
                     <div class="card-body cardcolor ">
                         <h4 class="card-title">TITOLO: {{ film.title ? film.title : film.name }} </h4>
-                        <h4 class="card-title">TITOLO DEL FILM/SERIE: {{ film.original_title ?? film.original_name }}
+                        <h4 class="card-text">TITOLO DEL FILM/SERIE: {{ film.original_title ?? film.original_name }}
                         </h4>
                         <small>LINGUA:
                             <img id="sconosciuto" class="language_flag " :src="getFlagImage(film)" alt=""></small>
@@ -108,6 +108,10 @@ export default {
 <style  scoped>
 span {
     color: white;
+}
+
+#e {
+    max-width: 100%;
 }
 
 #sconosciuto {
