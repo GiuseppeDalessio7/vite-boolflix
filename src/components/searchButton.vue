@@ -7,23 +7,24 @@ export default {
             store,
             flags: [
                 {
-                    img: "src/assets/img/IT.png",
+
+                    img: "src/assets/img/it.png",
                     language: "it"
                 },
                 {
-                    img: "src/assets/img/DE.png",
+                    img: "src/assets/img/de.png",
                     language: "de"
                 },
                 {
-                    img: "src/assets/img/FR.png",
+                    img: "src/assets/img/fr.png",
                     language: "fr"
                 },
                 {
-                    img: "src/assets/img/GB.png",
+                    img: "src/assets/img/gb.png",
                     language: "en"
                 },
                 {
-                    img: "src/assets/img/unknown.png",
+                    img: "src/assets/img/sconosciuta.png",
                     language: "unknown"
                 },
             ]
@@ -42,6 +43,7 @@ export default {
             this.flags.forEach(bandiera => {
                 if (bandiera.language === valueLang) {
                     found = true
+                    bandiera.img = found
                     console.log(found);
                     console.log(bandiera.language);
                 }
@@ -89,8 +91,6 @@ export default {
 span {
     color: white;
 }
-
-img {}
 </style>
 
 
