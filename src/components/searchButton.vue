@@ -5,29 +5,27 @@ export default {
     data() {
         return {
             store,
-            flags: [
-                {
+            lingue: ['en', 'it', 'de', 'fr'],
+            // flags: [
+            // {
 
-                    img: "src/assets/img/it.png",
-                    language: "it"
-                },
-                {
-                    img: "src/assets/img/de.png",
-                    language: "de"
-                },
-                {
-                    img: "src/assets/img/fr.png",
-                    language: "fr"
-                },
-                {
-                    img: "src/assets/img/gb.png",
-                    language: "en"
-                },
-                {
-                    img: "src/assets/img/sconosciuta.png",
-                    language: "unknown"
-                },
-            ]
+            // img: "https://flagsapi.com/IT/flat/64.png",
+            // language: "it"
+            // },
+            // {
+            // img: "https://flagsapi.com/DE/flat/64.png",
+            // language: "de"
+            // },
+            // {
+            // img: "https://flagsapi.com/FR/flat/64.png",
+            // language: "fr"
+            // },
+            // {
+            // img: "https://flagsapi.com/EN/flat/64.png",
+            // language: "en"
+            // },
+            // ]
+
 
         }
     },
@@ -37,22 +35,14 @@ export default {
     },
     methods: {
 
-        searchlanguage(i) {
-            let valueLang = this.store.filmScelto[i].original_language
-            let found = false
-            this.flags.forEach(bandiera => {
-                if (bandiera.language === valueLang) {
-                    found = true
-                    bandiera.img = found
-                    console.log(found);
-                    console.log(bandiera.language);
-                }
-
-            })
-            return valueLang
 
 
-        },
+
+
+
+
+
+
         //faccio un metodo dove prendo il mio url e lo cambio in modo dinamico
         searchFilms() {
 
@@ -74,12 +64,17 @@ export default {
             required>
         <button class="btn btn-outline-danger" @click="searchFilms()">cerca</button>
         <div class="container">
-            <ul v-for="(film, i) in this.store.filmScelto">
-                <li class="d-flex flex-column text-danger">
+            <ul>
+                <li class="d-flex flex-column text-danger" v-for="(film, i) in this.store.filmScelto">
                     <div><span>TITOLO:</span>{{ this.store.filmScelto[i].title }}</div>
                     <div><span>TITOLO DEL FILM:</span> {{ this.store.filmScelto[i].original_title }}</div>
                     <div><span>LINGUA:</span> {{ this.store.filmScelto[i].original_language }}</div>
-                    <div>{{ searchlanguage(i) }}> </div>
+                    <div> <span v-if="!lingue.includes(film.original_language)">lingua: {{ film.original_language }}</span>
+                        <img class="flag" src="../assets/img/gb.png" alt="en" v-if="film.original_language == 'en'">
+                        <img class="flag" src="../assets/img/it.png" alt="en" v-if="film.original_language == 'it'">
+                        <img class="flag" src="../assets/img/de.png" alt="en" v-if="film.original_language == 'de'">
+                        <img class="flag" src="../assets/img/fr.png" alt="en" v-if="film.original_language == 'fr'">
+                    </div>
                     <div><span>VOTO:</span> {{ this.store.filmScelto[i].vote_average }}</div>
                 </li>
             </ul>
@@ -90,6 +85,11 @@ export default {
 <style  scoped>
 span {
     color: white;
+}
+
+.flag {
+    height: 25px;
+    aspect-ratio: 2/2;
 }
 </style>
 
