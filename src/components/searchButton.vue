@@ -85,16 +85,15 @@ export default {
         </div>
     </div>
     <div class="container mt-4 ">
-
-
         <div class="container d-flex flex-wrap">
             <div class="row mt-2 ">
                 <div class=" col-lg-4 col-md-3 col-sm-4 mb-3 " v-for="(film, i) in this.store.filmScelto">
-                    <img id="imgegual" class="card-img-top"
-                        :src="film.backdrop_path ? `https://image.tmdb.org/t/p/w342/${film.backdrop_path} ` : 'https://www.pzsport.it/wp-content/uploads/2022/07/anteprima-non-disponibile-2.jpg'"
-                        alt="">
-
-                    <div class="card-body cardcolor" style="width: 342px;">
+                    <div>
+                        <img id="imgegual" class="card img-flud"
+                            :src="film.backdrop_path ? `https://image.tmdb.org/t/p/w342/${film.backdrop_path} ` : 'https://www.pzsport.it/wp-content/uploads/2022/07/anteprima-non-disponibile-2.jpg'"
+                            alt="">
+                    </div>
+                    <div class="card-body cardcolor ">
                         <h6 class="card-title"><small>Titolo:</small> {{ film.title ? film.title : film.name }} </h6>
                         <h6 class="card-text"><small>Titolo del film-serie:</small> {{ film.original_title ??
                             film.original_name }}
@@ -120,6 +119,19 @@ export default {
 </template>
 
 <style  scoped>
+.code-hidden {
+    display: none;
+}
+
+.card-body:hover {
+    display: block;
+
+}
+
+img:hover {
+    background-color: red;
+}
+
 .mybg {
     background-color: black;
 }
@@ -133,8 +145,9 @@ span {
 }
 
 #imgegual {
-    width: 342px;
-    height: 250px;
+    width: 100%;
+    height: 60%;
+
 }
 
 #sconosciuto {
