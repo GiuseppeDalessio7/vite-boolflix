@@ -17,23 +17,14 @@ export default {
   },
 
 }
+
 </script>
 
 
 
+
 <template>
-  <div class="mybg">
-    <h1 class="text-center my_red text-white">Cerca il film o la serie Tv</h1>
-    <SearchButton></SearchButton>
-  </div>
+  <SearchButton></SearchButton>
 </template>
 
-<style scoped>
-.mybg {
-  background-color: black;
-}
-
-.my_red {
-  background-color: rgb(229, 9, 20);
-}
-</style>
+<style scoped></style>

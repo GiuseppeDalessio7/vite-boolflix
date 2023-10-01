@@ -72,12 +72,17 @@ export default {
 
 
 <template>
-    <div class="d-flex">
-        <input v-model="store.films" class="p-1 mx-2" type="text" name="search" placeholder="Cerca Film o Serie" id=""
-            required>
-        <button class="btn btn-outline-danger" @click="searchFilms()"> <span><i class="fa-solid fa-magnifying-glass fa-sm"
-                    style="color: #ffffff;"></i></span> <span class=" mx-1">Cerca</span></button>
-
+    <div class="mybg ">
+        <div class="d-flex justify-content-between align-items-center ">
+            <h1 class="my_red p-2 ">BOOLFLIX</h1>
+            <div class="p-3 d-flex">
+                <input v-model="store.films" class="p-1 mx-2" type="text" name="search" placeholder="Cerca Film o Serie"
+                    id="" required>
+                <button class="btn btn-outline-danger align-items-center" @click="searchFilms()"> <span><i
+                            class="fa-solid fa-magnifying-glass fa-sm" style="color: #ffffff;"></i></span> <span
+                        class=" mx-1">Cerca</span></button>
+            </div>
+        </div>
     </div>
     <div class="container mt-4 ">
 
@@ -115,6 +120,14 @@ export default {
 </template>
 
 <style  scoped>
+.mybg {
+    background-color: black;
+}
+
+.my_red {
+    color: rgb(229, 9, 20);
+}
+
 span {
     color: white;
 }
