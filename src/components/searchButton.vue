@@ -70,20 +70,21 @@ export default {
 <template>
     <div class="container mt-4 ">
 
-        <input v-model="store.films" class="p-1 my-2" type="text" name="search" placeholder="Cerca Film o Serie" id=""
+        <input v-model="store.films" class="p-1 mx-2" type="text" name="search" placeholder="Cerca Film o Serie" id=""
             required>
         <button class="btn btn-outline-danger" @click="searchFilms()">cerca</button>
-        <div class="row d-flex ">
-            <div class="col-md-4" v-for="(film, i) in this.store.filmScelto">
-                <div class="card mb-4">
-                    <img class="card-img-top"
-                        :src="film.backdrop_path ? `https://image.tmdb.org/t/p/w342/${film.backdrop_path} ` : 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Immagine_non_disponibile.JPG'"
+        <div class="container d-flex flex-wrap">
+            <div class="row mt-2 ">
+                <div class=" col-lg-4 col-md-3 col-sm-4 mb-3 " v-for="(film, i) in this.store.filmScelto">
+                    <img id="imgegual" class="card-img-top"
+                        :src="film.backdrop_path ? `https://image.tmdb.org/t/p/w342/${film.backdrop_path} ` : 'https://www.pzsport.it/wp-content/uploads/2022/07/anteprima-non-disponibile-2.jpg'"
                         alt="">
 
-                    <div class="card-body cardcolor ">
-                        <h4 class="card-title">TITOLO: {{ film.title ? film.title : film.name }} </h4>
-                        <h4 class="card-text">TITOLO DEL FILM/SERIE: {{ film.original_title ?? film.original_name }}
-                        </h4>
+                    <div class="card-body cardcolor" style="width: 342px;">
+                        <h6 class="card-title"><small>Titolo:</small> {{ film.title ? film.title : film.name }} </h6>
+                        <h6 class="card-text"><small>Titolo del film-serie:</small> {{ film.original_title ??
+                            film.original_name }}
+                        </h6>
                         <small>LINGUA:
                             <img id="sconosciuto" class="language_flag " :src="getFlagImage(film)" alt=""></small>
                         <small>
@@ -91,16 +92,9 @@ export default {
                         </small>
 
                     </div>
+
                 </div>
             </div>
-
-
-
-
-
-
-
-
         </div>
     </div>
 </template>
@@ -110,8 +104,9 @@ span {
     color: white;
 }
 
-#e {
-    max-width: 100%;
+#imgegual {
+    width: 342px;
+    height: 250px;
 }
 
 #sconosciuto {
