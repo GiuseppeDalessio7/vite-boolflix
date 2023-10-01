@@ -21,7 +21,8 @@ export default {
                 img: "src/assets/img/de.png",
                 language: 'de',
             },
-            ]
+            ],
+            valutation: [],
         }
     },
 
@@ -46,8 +47,15 @@ export default {
 
             return unrecognized
 
-
         },
+
+        convertStar(voteaverage) {
+            let star = Math.ceil((voteaverage / 10) * 5)
+            this.store.valutation.push(star)
+            console.log(this.store.valutation);
+            return star
+        },
+
         //faccio un metodo dove prendo il mio url e lo cambio in modo dinamico
         searchFilms() {
 
@@ -86,13 +94,17 @@ export default {
                         <h6 class="card-text"><small>Titolo del film-serie:</small> {{ film.original_title ??
                             film.original_name }}
                         </h6>
-                        <small>LINGUA:
+                        <small> <span style="text-transform: uppercase;">LINGUA:</span>
                             <img id="sconosciuto" class="language_flag " :src="getFlagImage(film)" alt=""></small>
                         <div>
-                            <small>
-                                VOTO: {{ film.vote_average }}<i class="fa-solid fa-star" style="color: #fff700;"></i>
-                                <i class="fa-regular fa-star" style="color: #fff700;"></i>
-                            </small>
+
+                            <div>
+                                VOTO: {{ convertStar(film.vote_average) }}
+                                <template v-for="stelle in 5">
+                                    <i class="fa-solid fa-star"
+                                        :style="{ color: stelle <= convertStar(film.vote_average) ? '#fff300' : 'white' }"></i>
+                                </template>
+                            </div>
                         </div>
                     </div>
 

@@ -9,6 +9,7 @@ export const store = reactive({
     linguaFilm: null,
     aFlag: 0,
     singleLanguage: [],
+    valutation: [],
 
 
     //Chiamata in axios con il link alla api e la key
