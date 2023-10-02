@@ -89,10 +89,10 @@ export default {
             <div class="row mt-2 ">
                 <div class=" col-lg-4 col-md-3 col-sm-4 mb-3 " v-for="(film, i) in this.store.filmScelto">
                     <div class="card img-flud ">
-                        <img id="imgegual" class=" card position-relative"
+                        <img id="imgegual"
                             :src="film.backdrop_path ? `https://image.tmdb.org/t/p/w342/${film.backdrop_path} ` : 'https://www.pzsport.it/wp-content/uploads/2022/07/anteprima-non-disponibile-2.jpg'"
                             alt="">
-                        <div class="card-body cardcolor posizione ">
+                        <div class=" card-body">
                             <h6 class="card-title"><small>Titolo:</small> {{ film.title ? film.title : film.name }} </h6>
                             <h6 class="card-text"><small>Titolo del film-serie:</small> {{ film.original_title ??
                                 film.original_name }}
@@ -118,26 +118,23 @@ export default {
 
 
 <style  scoped>
-.posizione {
+.card-body:hover {
+    display: block;
     position: absolute;
     left: 0%;
     top: 0%;
     width: 100%;
     height: 100%;
     padding: 50px;
-
-
+    transition: all 3s;
+    background-color: red;
 }
 
-.card-body:hover {
+.card>img:hover {
     display: none;
+
 }
 
-
-
-.card:hover {
-    background-color: greenyellow;
-}
 
 .mybg {
     background-color: black;
@@ -164,9 +161,9 @@ span {
     border-radius: 50%;
 }
 
-.cardcolor {
-    background-color: rgba(229, 9, 20);
-}
+/* .cardcolor { */
+/* background-color: rgba(229, 9, 20); */
+/* } */
 </style>
 
 
