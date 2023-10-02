@@ -88,48 +88,55 @@ export default {
         <div class="container d-flex flex-wrap">
             <div class="row mt-2 ">
                 <div class=" col-lg-4 col-md-3 col-sm-4 mb-3 " v-for="(film, i) in this.store.filmScelto">
-                    <div>
-                        <img id="imgegual" class="card img-flud"
+                    <div class="card img-flud ">
+                        <img id="imgegual" class=" card position-relative"
                             :src="film.backdrop_path ? `https://image.tmdb.org/t/p/w342/${film.backdrop_path} ` : 'https://www.pzsport.it/wp-content/uploads/2022/07/anteprima-non-disponibile-2.jpg'"
                             alt="">
-                    </div>
-                    <div class="card-body cardcolor ">
-                        <h6 class="card-title"><small>Titolo:</small> {{ film.title ? film.title : film.name }} </h6>
-                        <h6 class="card-text"><small>Titolo del film-serie:</small> {{ film.original_title ??
-                            film.original_name }}
-                        </h6>
-                        <small> <span style="text-transform: uppercase;">LINGUA:</span>
-                            <img id="sconosciuto" class="language_flag " :src="getFlagImage(film)" alt=""></small>
-                        <div>
-
+                        <div class="card-body cardcolor posizione ">
+                            <h6 class="card-title"><small>Titolo:</small> {{ film.title ? film.title : film.name }} </h6>
+                            <h6 class="card-text"><small>Titolo del film-serie:</small> {{ film.original_title ??
+                                film.original_name }}
+                            </h6>
+                            <small> <span style="text-transform: uppercase;">LINGUA:</span>
+                                <img id="sconosciuto" class="language_flag " :src="getFlagImage(film)" alt=""></small>
                             <div>
-                                VOTO: {{ convertStar(film.vote_average) }}
-                                <template v-for="stelle in 5">
-                                    <i class="fa-solid fa-star"
-                                        :style="{ color: stelle <= convertStar(film.vote_average) ? '#fff300' : 'white' }"></i>
-                                </template>
+                                <div>
+                                    VOTO: {{ convertStar(film.vote_average) }}
+                                    <template v-for="stelle in 5">
+                                        <i class="fa-solid fa-star"
+                                            :style="{ color: stelle <= convertStar(film.vote_average) ? '#fff300' : 'white' }"></i>
+                                    </template>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </template>
 
+
 <style  scoped>
-.code-hidden {
-    display: none;
+.posizione {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+
+
 }
 
 .card-body:hover {
-    display: block;
-
+    display: none;
 }
 
-img:hover {
-    background-color: red;
+
+
+.card:hover {
+    background-color: greenyellow;
 }
 
 .mybg {
@@ -158,7 +165,7 @@ span {
 }
 
 .cardcolor {
-    background-color: rgb(229, 9, 20);
+    background-color: rgba(229, 9, 20);
 }
 </style>
 
