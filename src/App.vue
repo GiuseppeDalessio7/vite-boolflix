@@ -1,18 +1,15 @@
 <script >
 import { store } from '../src/store.js';
-import SearchButton from '../src/components/searchButton.vue'
+
 import AppCard from '../src/components/AppCard.vue';
 import AppHeader from '../src/components/AppHeader.vue'
-
-
 
 export default {
   name: "AppCard",
   components: {
-    SearchButton,
+
     AppCard,
     AppHeader,
-
   },
   data() {
     return {
@@ -21,6 +18,9 @@ export default {
     }
   },
 
+  created() {
+    store.fetchData();
+  },
 }
 
 </script>
@@ -29,8 +29,8 @@ export default {
 
 
 <template>
-  <SearchButton></SearchButton>
-  <card></card>
+  <AppHeader></AppHeader>
+  <AppCard></AppCard>
 </template>
 
 <style scoped></style>
