@@ -129,6 +129,18 @@ export default {
     opacity: 1;
 }
 
+/* .mytext:hover { */
+/* background-color: red; */
+/* display: block; */
+/* position: absolute; */
+/* left: 0%; */
+/* top: 0%; */
+/* width: 100%; */
+/* padding: 5rem; */
+/* height: 100%; */
+/* transition: all 3s; */
+/* background-color: red; */
+/* } */
 .card:hover .testo {
     opacity: 1;
 }
