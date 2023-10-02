@@ -2,17 +2,11 @@
 import { store } from '../store.js';
 export default {
     name: "AppHeader",
-    data() {
+    setup() {
         return {
             store,
         }
     },
-
-    created() {
-        store.fetchData();
-    },
-
-
     methods: {
         searchFilms() {
 
