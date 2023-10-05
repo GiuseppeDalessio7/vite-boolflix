@@ -1,4 +1,5 @@
 <script>
+import { store } from '../store.js';
 export default {
     name: "AppCard",
     props: {
@@ -24,6 +25,7 @@ export default {
             },
             ],
             valutation: [],
+            store
         }
     },
     methods: {
@@ -54,7 +56,7 @@ export default {
 <template>
     <div class="container d-flex flex-wrap">
         <div class="row mt-2 ">
-            <div class=" col-lg-4 col-md-3 col-sm-4 mb-3" v-for="(film, i) in this.store.filmScelto">
+            <div class=" col-lg-4 col-md-3 col-sm-4 mb-3" v-for="(film, i) in store.filmScelto">
                 <div class="card position-relative">
                     <img id="imgegual"
                         :src="film.backdrop_path ? `https://image.tmdb.org/t/p/w342/${film.backdrop_path} ` : 'https://www.pzsport.it/wp-content/uploads/2022/07/anteprima-non-disponibile-2.jpg'"
@@ -88,4 +90,85 @@ export default {
 
 
 
-<style scoped></style>
+<style scoped>
+.card {
+    width: 342px;
+    height: 100%;
+
+}
+
+.card:hover .testo {
+    background-color: red;
+    opacity: 1;
+}
+
+/* .mytext:hover { */
+/* background-color: red; */
+/* display: block; */
+/* position: absolute; */
+/* left: 0%; */
+/* top: 0%; */
+/* width: 100%; */
+/* padding: 5rem; */
+/* height: 100%; */
+/* transition: all 3s; */
+/* background-color: red; */
+/* } */
+.card:hover .testo {
+    opacity: 1;
+}
+
+.testo {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.card:hover {
+    background-color: red;
+}
+
+.testo {
+    background-color: red;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    padding: 2rem;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s;
+    transition: all 2s;
+    background-color: red;
+}
+
+.card>img:hover {
+    display: none;
+}
+
+
+.mybg {
+    background-color: black;
+}
+
+.my_red {
+    color: rgb(229, 9, 20);
+}
+
+span {
+    color: white;
+}
+
+#imgegual {
+    max-width: 346px;
+    height: 194px;
+
+}
+
+#sconosciuto {
+    width: 25px;
+    background-color: rgb(229, 9, 20);
+    aspect-ratio: 2/2;
+    border-radius: 50%;
+}
+</style>

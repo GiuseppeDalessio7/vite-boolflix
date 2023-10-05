@@ -40,14 +40,6 @@ export default {
     </div>
 </template>
 
-
-
-
-
-
-
-
-
 <style  scoped>
 .mybg {
     background-color: black;
